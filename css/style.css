@@ -1,0 +1,158 @@
+/* for browser performance, best to onliny animate two different properties, opacity and transform */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+    /*transform: translateX(-100px) rotate(-50deg);*/ }
+  /*  60% {
+    transform: rotate(120deg);
+  }*/
+  80% {
+    transform: translateX(10px); }
+  100% {
+    opacity: 1;
+    /* if we say translate 0, that's saying just "normal", aka how it looks with no animations*/
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px); }
+  80% {
+    transform: translateX(-10px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+/* basic reset: */
+/*  * means universal selector */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serfif;
+  font-weight: 400;
+  /*  font-size: 16px;*/
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+  /* prevents the weird shaky thing that happens with animations */
+  /* no one knows why it happens, but this is the fix:*/
+  /* backface-visability the entire element moves determines if the backpart of the element is hidden or visible to the user*/
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    /* block-level elements occupy the entire width that they have available & create line breaks after and before them*/
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    /* how the animation will proceed over time*/
+    animation-timing-function: ease-out;
+    /*iteration = how many times you want it to repeat*/
+    /*animation-iteration-count: 3;*/
+    /*animation-delay: 0.5s;*/ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* shorthand for animations*/
+    animation: moveInRight 1s ease-out; }
+
+.btn {
+  /*pseudo classes are a special state of the selector, we use them to style
+elements under a certain condition */
+  /* .75s shorthands for delay*/ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative; }
+  .btn:hover {
+    /* y in css moves from top to bottom, so to go up you need a negative value*/
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: white;
+    color: #777; }
+    .btn--white::after {
+      background-color: white; }
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* this psuedo element button needs to go behind the real button, */
+    /* so we set this position absolute, but also position relative to btn:visited above*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  .btn--animated {
+    animation: moveInButton 0.5s ease-out .75s;
+    /* fill mode will apply the properties of  animation time 0% before the animation starts*/
+    animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* this top and left are IN RELATION TO THE PARENT ELEMENT*/
+    top: 40%;
+    left: 50%;
+    /* those -50% are now no longer in relation to parent element, but of the element itself*/
+    /* so it we say we want -50% it will be shifted half of the width to the left side*/
+    /* and same thing for the height it will be shifted 50% of the element's height to the top*/
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/* two command line tabs:*/
+/* npm run compile:sass*/
+/* live-server */

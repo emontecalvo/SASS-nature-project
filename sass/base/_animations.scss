@@ -1,0 +1,50 @@
+/* for browser performance, best to onliny animate two different properties, opacity and transform */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+    /*transform: translateX(-100px) rotate(-50deg);*/
+  }
+
+/*  60% {
+    transform: rotate(120deg);
+  }*/
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    /* if we say translate 0, that's saying just "normal", aka how it looks with no animations*/
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

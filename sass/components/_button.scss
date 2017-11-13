@@ -1,0 +1,61 @@
+.btn {
+  /*pseudo classes are a special state of the selector, we use them to style
+elements under a certain condition */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+  }
+
+  &:hover {
+    /* y in css moves from top to bottom, so to go up you need a negative value*/
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* this psuedo element button needs to go behind the real button, */
+    /* so we set this position absolute, but also position relative to btn:visited above*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  /* .75s shorthands for delay*/
+  &--animated {
+    animation: moveInButton 0.5s ease-out .75s;
+    /* fill mode will apply the properties of  animation time 0% before the animation starts*/
+    animation-fill-mode: backwards;
+  }
+}
