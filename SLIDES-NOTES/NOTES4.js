@@ -37,11 +37,33 @@
 	}
 
 ***** How to create a background video covering an entire section
-
+ - see below - position absolute, opacity, object-fit
 
 ***** How to use the <video> HTML element
-
+                <div class="bg-video">
+                    <video class="bg-video__content" autoplay muted loop>
+                        <source src="img/video.mp4" type="video/mp4">
+                        <source src="img/video.webm" type="video/webm">
+                        Your browser is not supported for video!
+                    </video>
+                </div>
 
 ***** How and when to use the OBJECT-FIT property
 
+.bg-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	opacity: .15;
+	overflow: hidden;
 
+	&__content {
+		height: 100%;
+		width: 100%;
+		/* similar to background image cover property*/
+		object-fit: cover;
+	}
+}
