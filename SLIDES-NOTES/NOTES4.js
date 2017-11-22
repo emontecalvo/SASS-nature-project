@@ -30,6 +30,11 @@
 
 ***** How to apply FILTER to images
 
+	&:hover &__img {
+		transform: translateX(-4rem) scale(1);
+		/* brightness over 100% = brighter, under 100% = darker*/
+		filter: blur(3px) brightness(80%);
+	}
 
 ***** How to create a background video covering an entire section
 
