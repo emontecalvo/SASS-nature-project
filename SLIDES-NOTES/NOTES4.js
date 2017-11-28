@@ -66,4 +66,129 @@
 		/* similar to background image cover property*/
 		object-fit: cover;
 	}
+
+
+*********************************************************************************************************
+BUILDING THE BOOKING section
+
+*****  How to implement "solid color gradients":
+background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10.jpg);
+
+the background-image puts the linear gradient colors on top of the image, 105deg is how the color gets tilted
+and 0%, 50% are the points where we want the changes
+
+
+.book {
+    background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 50%, transparent 50%), url(../img/nat-10.jpg);
+    background-size: 100%;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+    height: 50rem;
 }
+
+*****    NOTE:  most elements inherit styles but not input elements, so use "inherit" on them for styles (font-family: inhereit)
+
+*****  How the general and adjacent sibling selectors work & why we need them:
+
+	&__input:placeholder-shown + &__label {
+
+	}
+
+the "plus" takes the element sibling right next to it, in this case grabbing
+input and label classes:
+                                // <div class="form__group">
+                                //     <input class="form__input" type="text" id="name" placeholder="Full name" required>
+                                //     <label for="name" class="form__label">Full name</label>
+                                // </div>
+
+you can use "~" for a general sibling selector instead of the plus
+plus is ADJACENT
+
+*****  How to use the ::input-placeholder pseudo-element:
+	&__input:placeholder-shown + &__label {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-4rem);
+	}
+
+	&::-webkit-input-placeholder {
+		color: $color-gray-dark-2;
+	}
+
+*****  How to and when to use the :focus, :invalid, placeholder-shown and :checked pseudo-classes:
+
+&focus:invalid is waiting for the browser to check if it is correct
+
+		&:focus {
+			outline: none;
+			box-shadow: 0 1rem 2rem rgba($color-black, .1);
+			border-bottom: 3px solid $color-primary;
+		}
+
+		&:focus:invalid {
+			border-bottom: 3px solid $color-secondary-dark;
+		}
+
+
+
+
+*****  Techniques to build custom radio buttons:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
