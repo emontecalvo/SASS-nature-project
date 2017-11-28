@@ -135,7 +135,19 @@ plus is ADJACENT
 
 *****  Techniques to build custom radio buttons:
 
+the NAME attriube on the input is what lets the browser know
+these radio buttons are together, otherwise you could select both radio buttons
 
+                                // <div class="form__group">
+                                //     <div class="form__radio-group">
+                                //         <input type="radio" class="form__radio-group" id="small" name="size">
+                                //         <label class="form__radio-label" for="small">Small tour group</label>
+                                //     </div>
+                                //     <div class="form__radio-group">
+                                //         <input type="radio" class="form__radio-group" id="large" name="size">
+                                //         <label class="form__radio-label" for="large">Large tour group</label>
+                                //     </div>
+                                // </div>
 
 
 

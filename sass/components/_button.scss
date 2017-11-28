@@ -1,6 +1,7 @@
 .btn {
   /*pseudo classes are a special state of the selector, we use them to style
 elements under a certain condition */
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -11,6 +12,10 @@ elements under a certain condition */
     transition: all .2s;
     position: relative;
     font-size: $default-font-size;
+
+    /* change for the <button> element*/
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -24,7 +29,9 @@ elements under a certain condition */
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
   }
