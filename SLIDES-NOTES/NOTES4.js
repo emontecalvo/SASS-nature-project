@@ -152,6 +152,33 @@ these radio buttons are together, otherwise you could select both radio buttons
 
 
 *********************************************************************************************************
+NAVIGATION BUILDING
+
+***** position:fixed:
+	position:fixed is the same as position:absolute EXCEPT that is stays on the screen when you scroll
+	takes the element out of the flow
+
+using z-index will keep it in front of every other element
+			z-index: 1000;
+
+
+***** What the "checkbox hack" is and how it works:
+
+
+
+***** How to create custom animation timing functions using cubic bezier curves:
+
+
+
+***** How to animate "solid-color gradients":
+
+radial gradient goes from inside to out on the element: 		background-image: radial-gradient($color-primary-light, $color-primary-dark);
+
+***** How and why to use transform-origin:
+
+
+
+
 
 
 
