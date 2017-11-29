@@ -168,7 +168,8 @@ using z-index will keep it in front of every other element
 
 ***** How to create custom animation timing functions using cubic bezier curves:
 
-
+see webpage:   "http://easings.net/ "  to see options and get the numbers
+		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
 
 ***** How to animate "solid-color gradients":
 
@@ -178,6 +179,50 @@ radial gradient goes from inside to out on the element: 		background-image: radi
 
 
 
+*********************************************************************************************************
+BUILDING A POPUP
+
+***** How to use the :target pseudo-classes:
+
+***** How to create boxes with equal height using display: tabel-cell
+
+	&__content {
+		@include absCenter;
+		width: 75%;
+		background-color: $color-white;
+		box-shadow: 0 2rem 4rem rgba($color-black, .2);
+		border-radius: 3px;
+		display: table;
+	}
+
+	&__left {
+		width: 33.333333%;
+		display: table-cell;
+	}
+
+	&__right {
+		width: 66.666667%;
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+***** How to create CSS Text columns
+	&__text {
+		font-size: 1.4rem;
+		margin-bottom: 4rem;
+
+		column-count: 2;
+		column-gap: 4rem;
+		column-rule: 1px solid $color-gray-light-2;
+	}
+
+***** How to automatically hyphenate words using "hypenate":
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		-webkit-hyphens: auto;
+		hyphens: auto;
+
+		or hyphens: manual  for more control 
 
 
 
