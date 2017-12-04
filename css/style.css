@@ -1,3 +1,25 @@
+/* MEDIA QUERY MANAGER */
+/*
+0 - 600px:  	phone;
+600-900px:  	tablet portrait;
+900-1200px:  	tablet landscape;
+1200-1800:		OUR NORMAL STYLES APPLY;
+1800+px:  		Big desktop;
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+
+
+1em = 16px   - ems are better than rems for media queries
+600px / 16 = 37.5em
+900px / 16 = 56.25em
+1200px / 16 = 75em
+1800px / 16 = 112.5em
+
+*/
 /* COLORS */
 /* FONT */
 /* GRID */
@@ -47,6 +69,15 @@
 html {
   /* defines what 1rem is*/
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box; }
